@@ -1,0 +1,47 @@
+#
+
+#
+def translate(String):
+    #Dictionary for pirate words and english counterparts
+    pirate = {"hello" : "avast", "excuse" : "arrr", "sir" : "matey", "boy" : "matey", "man" : "matey", 
+                "madam" : "proud beauty", "woman" : "proud beauty", "officer" : "foul blaggart",
+                "the" : "th\'", "my" : "me", "your" : "yer", "is" : "be", "are" : "be", "kitchen" : "galley",
+                "hotel" : "fleabag inn"}
+
+    space = 0
+    translation = ''
+    word = ''
+    #iterates through the entire phrase entered by user
+    for i in range(len(String)):
+        #first word so it doesnt get cut off
+        if space == 0:
+            if String[i] == ' ' or String[i] == ',':
+                word = String[space : i]
+                space = i
+                if word in pirate:
+                    word = pirate[word]
+
+                translation = translation + word
+        #following words to not include spaces in the 'word' string
+        elif String[i] == ' ' or String[i] == ',':
+            word = String[space + 1: i]
+            space = i
+            if word in pirate:
+                word = pirate[word]
+            
+            translation = translation + ' ' + word
+    #one more time for the last word of the phrase because it does not end with a space
+    word = String[space + 1 : ]
+    if word in pirate:
+        word = pirate[word]
+
+    translation = translation + ' ' + word
+        
+
+    return translation
+
+
+print("Enter a phrase")
+phrase = input()
+print("Translating")
+print(translate(phrase))
