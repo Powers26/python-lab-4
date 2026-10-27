@@ -1,4 +1,4 @@
-#Lium Powers, Python Programming, 10/__/2026
+#Lium Powers, Python Programming, 10/27/2026
 #This program takes an input from the user and counts how many words are in their input
 
 #countWords will count how many words are in a sentence
